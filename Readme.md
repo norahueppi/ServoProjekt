@@ -16,5 +16,18 @@
     - 8.2 Messresultate
 9. Aufgabe c.
     - 9.1 Erwartungen 
-    - 9,2 Messresultate
+    - 9.2 Messresultate
+10. Aufgabe d.
+    - 10.1 Erwartungen 
+    - 10.2 Messresultate
+11. Aufgabe e.
+    - 11.1 Erwartungen 
+    - 11.2 Messresultate
+12. Aufgabe f.
+    - 12.1 Erwartungen 
+    - 12.2 Messresultate
+13. Aufgabe g.
+    - 13.1 Erwartungen 
+    - 13.2 Messresultate
+14. Fazit
 
