@@ -1,5 +1,4 @@
 # Servo Dokumentation
-
 ## Inhaltsverzeichnis
 ### Servo Dokumentation
 1. Was ist ein Servo-Motor und wo wird dieser eingesetzt?
