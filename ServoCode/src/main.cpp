@@ -22,7 +22,8 @@ int Button2Pin = 15;
 int Button1val = 0;
 int Button2val = 0;
 
-
+int LEDPin_Blue = 7;
+int LEDPin_Red = 5;
 
 int pos = 0;      // position in degrees
 ESP32PWM pwm;
@@ -47,6 +48,9 @@ void setup() {
   pinMode(servo4Pin, OUTPUT);
   pinMode(servo5Pin, OUTPUT);
 
+  pinMode(LEDPin_Red, OUTPUT);
+  pinMode(LEDPin_Blue, OUTPUT);
+
   servo1.setPeriodHertz(50);
   servo2.setPeriodHertz(50);
   servo3.setPeriodHertz(50);
@@ -62,13 +66,22 @@ void setup() {
 
 void loop() {
   servo1.write(90);
-  servo2.write(90);
-  servo3.write(90);
-  servo4.write(90);
-  servo5.write(0);
+  servo2.write(180);
+  servo3.write(180);
+  servo4.write(0);
 
-  Button1val = digitalRead(Button1Pin);
   Button2val = digitalRead(Button2Pin);
+
+  if(Button1val = digitalRead(Button1Pin) == LOW){
+     servo5.write(90);
+     digitalWrite(LEDPin_Blue, HIGH);
+     digitalWrite(LEDPin_Red, LOW);
+  }
+  else{
+  servo5.write(0);
+  digitalWrite(LEDPin_Blue, LOW);
+  digitalWrite(LEDPin_Red, HIGH);
+  }
 
   delay(20);
   // put your main code here, to run repeatedly:
