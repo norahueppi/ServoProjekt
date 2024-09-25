@@ -1,6 +1,15 @@
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
+#define SERVO1PIN 8
+#define SERVO2PIN 11
+#define SERVO3PIN 10
+#define SERVO4PIN 9
+#define SERVO5PIN 12
+
+#define BUTTONPIN1 16
+#define BUTTONPIN2 15
+
 Servo servo1;
 Servo servo2;
 Servo servo3;
@@ -10,17 +19,11 @@ Servo servo5;
 int minUs = 1000;
 int maxUs = 2000;
 
-int servo1Pin = 8;
-int servo2Pin = 11;
-int servo3Pin = 10;
-int servo4Pin = 9;
-int servo5Pin = 12;
-
-int Button1Pin = 16;
-int Button2Pin = 15;
-
 int Button1val = 0;
 int Button2val = 0;
+
+int Button1val_last = 0;
+int Button2val_last = 0;
 
 int LEDPin_Blue = 7;
 int LEDPin_Red = 5;
@@ -39,14 +42,14 @@ void setup() {
 
   Serial.begin(9600);
   
-  pinMode(Button1Pin, INPUT);
-  pinMode(Button2Pin, INPUT);
+  pinMode(BUTTONPIN1, INPUT_PULLUP);
+  pinMode(BUTTONPIN2, INPUT_PULLUP);
 
-  pinMode(servo1Pin, OUTPUT);
-  pinMode(servo2Pin, OUTPUT);
-  pinMode(servo3Pin, OUTPUT);
-  pinMode(servo4Pin, OUTPUT);
-  pinMode(servo5Pin, OUTPUT);
+  pinMode(SERVO1PIN, OUTPUT);
+  pinMode(SERVO2PIN, OUTPUT);
+  pinMode(SERVO3PIN, OUTPUT);
+  pinMode(SERVO4PIN, OUTPUT);
+  pinMode(SERVO5PIN, OUTPUT);
 
   pinMode(LEDPin_Red, OUTPUT);
   pinMode(LEDPin_Blue, OUTPUT);
@@ -57,11 +60,11 @@ void setup() {
   servo4.setPeriodHertz(50);
   servo5.setPeriodHertz(50);      // Standard 50hz servo
 
-  servo1.attach(servo1Pin, minUs, maxUs);
-  servo2.attach(servo2Pin, minUs, maxUs);
-  servo3.attach(servo3Pin, minUs, maxUs);
-  servo4.attach(servo4Pin, minUs, maxUs);
-  servo5.attach(servo5Pin, minUs, maxUs);
+  servo1.attach(SERVO1PIN, minUs, maxUs);
+  servo2.attach(SERVO2PIN, minUs, maxUs);
+  servo3.attach(SERVO3PIN, minUs, maxUs);
+  servo4.attach(SERVO4PIN, minUs, maxUs);
+  servo5.attach(SERVO5PIN, minUs, maxUs);
 }
 
 void loop() {
@@ -70,18 +73,20 @@ void loop() {
   servo3.write(180);
   servo4.write(0);
 
-  Button2val = digitalRead(Button2Pin);
+  Button1val = digitalRead(BUTTONPIN1);
 
-  if(Button1val = digitalRead(Button1Pin) == LOW){
-     servo5.write(90);
-     digitalWrite(LEDPin_Blue, HIGH);
-     digitalWrite(LEDPin_Red, LOW);
+  if((Button1val != Button1val_last) && (Button1val == LOW)){
+    servo5.write(90);
+    digitalWrite(LEDPin_Blue, HIGH);
+    digitalWrite(LEDPin_Red, LOW);
   }
   else{
-  servo5.write(0);
-  digitalWrite(LEDPin_Blue, LOW);
-  digitalWrite(LEDPin_Red, HIGH);
+    servo5.write(80);
+    digitalWrite(LEDPin_Blue, LOW);
+    digitalWrite(LEDPin_Red, HIGH);
   }
+
+  Button1val_last = Button1val;
 
   delay(20);
   // put your main code here, to run repeatedly:
