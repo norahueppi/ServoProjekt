@@ -1,14 +1,18 @@
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
-#define SERVO1PIN 8
-#define SERVO2PIN 11
-#define SERVO3PIN 10
-#define SERVO4PIN 9
-#define SERVO5PIN 12
+#define SERVO1PIN 8  //Lila
+#define SERVO2PIN 11 //Gelb
+#define SERVO3PIN 10 //Grün
+#define SERVO4PIN 9  //Blau
+#define SERVO5PIN 12 //Orange
 
-#define BUTTONPIN1 16
-#define BUTTONPIN2 15
+#define BUTTONPIN1 15
+#define BUTTONPIN2 16
+
+#define servostart  0
+#define statebtn1   1
+#define statebtn2   2
 
 Servo servo1;
 Servo servo2;
@@ -27,6 +31,8 @@ int Button2val_last = 0;
 
 int LEDPin_Blue = 7;
 int LEDPin_Red = 5;
+
+int statusservo = servostart;
 
 int pos = 0;      // position in degrees
 ESP32PWM pwm;
@@ -67,29 +73,102 @@ void setup() {
   servo5.attach(SERVO5PIN, minUs, maxUs);
 }
 
-void loop() {
-  servo1.write(90);
-  servo2.write(180);
-  servo3.write(180);
-  servo4.write(0);
 
-  Button1val = digitalRead(BUTTONPIN1);
-
-  if((Button1val != Button1val_last) && (Button1val == LOW)){
-    servo5.write(90);
-    digitalWrite(LEDPin_Blue, HIGH);
-    digitalWrite(LEDPin_Red, LOW);
-  }
-  else{
-    servo5.write(80);
-    digitalWrite(LEDPin_Blue, LOW);
-    digitalWrite(LEDPin_Red, HIGH);
-  }
-
-  Button1val_last = Button1val;
-
+/*void loop(){
   delay(20);
-  // put your main code here, to run repeatedly:
+  Button1val = digitalRead(BUTTONPIN1);
+  if((Button1val != Button1val_last) && (Button1val == LOW)){
+    servo5.write(180);
+  }
+  Button1val_last = Button1val;
+}*/
+
+void loop() {
+  Button1val = digitalRead(BUTTONPIN1);
+  Button2val = digitalRead(BUTTONPIN2);
+
+  switch (statusservo){
+    case servostart:
+      servo1.write(90);
+      if((Button1val != Button1val_last) && (Button1val == LOW)){
+          statusservo = statebtn1;
+      }
+
+      if((Button2val != Button2val_last) && (Button2val == LOW)){
+          statusservo = statebtn2;
+      }
+      digitalWrite(LEDPin_Blue, HIGH);
+      digitalWrite(LEDPin_Red, LOW);
+
+      Button1val_last = Button1val;
+      Button2val_last = Button2val;
+      break;
+
+    case statebtn1:
+      servo1.write(90);
+      if((Button2val != Button2val_last) && (Button2val == LOW)){
+          statusservo = statebtn2;
+      }
+      digitalWrite(LEDPin_Blue, HIGH);
+      digitalWrite(LEDPin_Red, HIGH);
+
+      Button2val_last = Button2val;
+      break;
+
+    case statebtn2:
+      servo1.write(180);
+      if((Button1val != Button1val_last) && (Button1val == LOW)){
+          statusservo = statebtn1;
+      }
+      digitalWrite(LEDPin_Blue, LOW);
+      digitalWrite(LEDPin_Red, HIGH);
+
+      Button1val_last = Button1val;
+      break;
+
+  }
+  delay(100);
+
+  /*switch (statebtn){
+    case statebegin:
+      servo1.write(90);
+      servo2.write(90);
+      servo3.write(90);
+      servo4.write(90);
+      servo5.write(0);
+
+      if((Button1val != Button1val_last) && (Button1val == LOW)){
+        statebtn = statebtn1;
+      }
+       Button1val_last = Button1val;
+      break;
+
+    case statebtn1:
+      if((Button1val != Button1val_last) && (Button1val == LOW)){
+        statebtn = statebtn2;
+      }
+      servo1.write(180);
+      servo2.write(40);
+      servo3.write(130);
+      servo4.write(60);
+      servo5.write(180);
+      digitalWrite(LEDPin_Blue, HIGH);
+      digitalWrite(LEDPin_Red, LOW);
+      Button1val_last = Button1val;
+      break;
+
+    case statebtn2:
+      if((Button1val != Button1val_last) && (Button1val == LOW)){
+        statebtn = statebtn1;
+      }
+      servo3.write(180);
+      digitalWrite(LEDPin_Blue, LOW);
+      digitalWrite(LEDPin_Red, HIGH);
+      printf("Servo ist auf 180°\n");
+      Button1val_last = Button1val;
+      break;
+  }*/
+  
 }
 
 //https://github.com/madhephaestus/ESP32Servo/blob/master/examples/Multiple-Servo-Example-Arduino/Multiple-Servo-Example-Arduino.ino
