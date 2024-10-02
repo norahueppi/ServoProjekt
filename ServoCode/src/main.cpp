@@ -11,8 +11,13 @@
 #define BUTTONPIN2 16
 
 #define servostart  0
+
+#define statebegin  0
 #define statebtn1   1
 #define statebtn2   2
+
+#define servoopen   3
+#define servoclose  4
 
 Servo servo1;
 Servo servo2;
@@ -30,15 +35,19 @@ int Button1val_last = 0;
 int Button2val_last = 0;
 
 int LEDPin_Blue = 7;
+int LEDPin_Green = 6;
 int LEDPin_Red = 5;
 
-int statusservo = servostart;
+int stateservo = servostart;
+int statebtn = statebegin;
+
+int counter = 0;
 
 int pos = 0;      // position in degrees
 ESP32PWM pwm;
 
 
-void setup() {
+void seätup() {
   // put your setup code here, to run once:
   // Allow allocation of all timers
 	ESP32PWM::allocateTimer(0);
@@ -59,6 +68,7 @@ void setup() {
 
   pinMode(LEDPin_Red, OUTPUT);
   pinMode(LEDPin_Blue, OUTPUT);
+  pinMode(LEDPin_Green, OUTPUT);
 
   servo1.setPeriodHertz(50);
   servo2.setPeriodHertz(50);
@@ -84,18 +94,78 @@ void setup() {
 }*/
 
 void loop() {
+switch (statebtn){
+    case statebegin:
+      servo1.write(0);
+      servo2.write(90);
+      servo3.write(90);
+      servo4.write(90);
+      servo5.write(0);
+
+      digitalWrite(LEDPin_Blue, LOW);
+      digitalWrite(LEDPin_Red, LOW);
+      digitalWrite(LEDPin_Green, HIGH);
+
+      if((Button1val != Button1val_last) && (Button1val == LOW)){
+        statebtn = statebtn1;
+        stateservo = servoopen;
+      }
+      if((Button2val != Button2val_last) && (Button2val == LOW)){
+        statebtn = statebtn2;
+        stateservo = servoopen;
+      }
+      Button1val_last = Button1val;
+      Button2val_last = Button2val;
+
+      break;
+
+    case statebtn1:
+      digitalWrite(LEDPin_Blue, HIGH);
+      digitalWrite(LEDPin_Red, LOW);
+      digitalWrite(LEDPin_Green, LOW);
+
+      switch(stateservo){
+        case servoopen:
+          servo1.write(50);
+          servo2.write(140);
+          servo3.write(20);
+          servo4.write(100);
+          servo5.write(180);
+
+          counter ++;
+          if(counter >= 25){
+            stateservo = servoclose;
+            counter = 0;
+          }
+
+          break;
+
+        case servoclose:
+          servo5.write(0);
+          if(servo5 == 0){
+            counter ++;
+            if(counter >= 10)
+          }
+      }
+
+      break;
+  }
+}
+
+//Aufgabe a und b
+/*void loop() {
   Button1val = digitalRead(BUTTONPIN1);
   Button2val = digitalRead(BUTTONPIN2);
 
-  switch (statusservo){
+  switch (stateservo){
     case servostart:
       servo1.write(90);
       if((Button1val != Button1val_last) && (Button1val == LOW)){
-          statusservo = statebtn1;
+          stateservo = statebtn1;
       }
 
       if((Button2val != Button2val_last) && (Button2val == LOW)){
-          statusservo = statebtn2;
+          stateservo = statebtn2;
       }
       digitalWrite(LEDPin_Blue, HIGH);
       digitalWrite(LEDPin_Red, LOW);
@@ -107,7 +177,7 @@ void loop() {
     case statebtn1:
       servo1.write(90);
       if((Button2val != Button2val_last) && (Button2val == LOW)){
-          statusservo = statebtn2;
+          stateservo = statebtn2;
       }
       digitalWrite(LEDPin_Blue, HIGH);
       digitalWrite(LEDPin_Red, HIGH);
@@ -118,7 +188,7 @@ void loop() {
     case statebtn2:
       servo1.write(180);
       if((Button1val != Button1val_last) && (Button1val == LOW)){
-          statusservo = statebtn1;
+          stateservo = statebtn1;
       }
       digitalWrite(LEDPin_Blue, LOW);
       digitalWrite(LEDPin_Red, HIGH);
@@ -128,48 +198,8 @@ void loop() {
 
   }
   delay(100);
-
-  /*switch (statebtn){
-    case statebegin:
-      servo1.write(90);
-      servo2.write(90);
-      servo3.write(90);
-      servo4.write(90);
-      servo5.write(0);
-
-      if((Button1val != Button1val_last) && (Button1val == LOW)){
-        statebtn = statebtn1;
-      }
-       Button1val_last = Button1val;
-      break;
-
-    case statebtn1:
-      if((Button1val != Button1val_last) && (Button1val == LOW)){
-        statebtn = statebtn2;
-      }
-      servo1.write(180);
-      servo2.write(40);
-      servo3.write(130);
-      servo4.write(60);
-      servo5.write(180);
-      digitalWrite(LEDPin_Blue, HIGH);
-      digitalWrite(LEDPin_Red, LOW);
-      Button1val_last = Button1val;
-      break;
-
-    case statebtn2:
-      if((Button1val != Button1val_last) && (Button1val == LOW)){
-        statebtn = statebtn1;
-      }
-      servo3.write(180);
-      digitalWrite(LEDPin_Blue, LOW);
-      digitalWrite(LEDPin_Red, HIGH);
-      printf("Servo ist auf 180°\n");
-      Button1val_last = Button1val;
-      break;
-  }*/
   
-}
+}*/
 
 //https://github.com/madhephaestus/ESP32Servo/blob/master/examples/Multiple-Servo-Example-Arduino/Multiple-Servo-Example-Arduino.ino
 //https://www.arduino.cc/reference/en/
