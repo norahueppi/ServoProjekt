@@ -47,7 +47,7 @@ int pos = 0;      // position in degrees
 ESP32PWM pwm;
 
 
-void seätup() {
+void setup() {
   // put your setup code here, to run once:
   // Allow allocation of all timers
 	ESP32PWM::allocateTimer(0);
@@ -93,7 +93,8 @@ void seätup() {
   Button1val_last = Button1val;
 }*/
 
-void loop() {
+//AUFGABE G)
+/*void loop() {
 switch (statebtn){
     case statebegin:
       servo1.write(0);
@@ -142,7 +143,7 @@ switch (statebtn){
 
         case servoclose:
           servo5.write(0);
-          if(servo5 == 0){
+          if(servo5== 0){
             counter ++;
             if(counter >= 10)
           }
@@ -150,9 +151,9 @@ switch (statebtn){
 
       break;
   }
-}
+}*/
 
-//Aufgabe a und b
+//AUFGABE A) UND B)
 /*void loop() {
   Button1val = digitalRead(BUTTONPIN1);
   Button2val = digitalRead(BUTTONPIN2);
@@ -196,6 +197,7 @@ switch (statebtn){
       Button1val_last = Button1val;
       break;
 
+
   }
   delay(100);
   
@@ -203,3 +205,9 @@ switch (statebtn){
 
 //https://github.com/madhephaestus/ESP32Servo/blob/master/examples/Multiple-Servo-Example-Arduino/Multiple-Servo-Example-Arduino.ino
 //https://www.arduino.cc/reference/en/
+
+
+
+
+
+
