@@ -21,4 +21,30 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
     - ESP32
     - PlatformIO
     - Streckbrett
-    - 5 Servos
+    - 5 Servos  
+
+6. **Aufbau**  
+
+7. **Aufgabe A**
+    - **Aufgabenstellung**  
+        Beim Einschalten fährt der Servo auf 90°.  
+    - **Schema**  
+
+    - **Programmbeschreib**  
+
+    - **Schaltungsaufbau**  
+
+    - **Bedienung**  
+
+    - **Information**  
+
+    - **Test**  
+
+
+     
+
+    
+
+
+
+
