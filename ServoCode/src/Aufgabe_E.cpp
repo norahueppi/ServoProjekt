@@ -1,3 +1,28 @@
+/* Aufgabe_E.cpp
+ by Nora Hüppi
+ 
+ Like in assigment D the servo rotates vrom 180° t0 0° if btnmove0 is pressed, 
+ when realised the servo stops. and vice verca if btnmove180 is pressed an realised.
+ it still makes 1° steps in both directions,  just this time de rotation speed goes 
+ faster after every 10 repetitions.
+
+ Connection of the Servos:
+ Servo Datapin (Orange/White) -> Pin12
+ Servo Vcc (Red) -> 5V
+ Servo GND (Brown) -> GND
+ 
+ Connection of BUTTONMOVE180:
+ 3.3V -> PIN15
+ 
+ Connection of BUTTONMOVE0:
+ 3.3V -> PIN16
+ 
+ created 28 Oktober 2024
+ by Nora Hüppi
+ edited 21 November 2024
+ by Nora Hüppi
+*/
+
 #include <Arduino.h>
 #include <ESP32Servo.h>
 

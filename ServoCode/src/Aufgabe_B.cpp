@@ -9,7 +9,7 @@
  Servo Vcc (Red) -> 5V
  Servo GND (Black) -> GND
  
- Connection of BUTTONMove180:
+ Connection of BUTTONMOVE180:
  3.3V -> PIN15
  
  Connection of Button BUTTONMOVE0:
