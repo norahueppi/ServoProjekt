@@ -1,54 +1,27 @@
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
-#define SERVO1PIN 8  //Lila
-#define SERVO2PIN 11 //Gelb
-#define SERVO3PIN 10 //Grün
-#define SERVO4PIN 9  //Blau
 #define SERVO5PIN 12 //Orange
-
 
 #define BUTTONPIN0 15
 #define BUTTONPIN1 16
 #define BUTTONPIN2 17
 #define BUTTONPIN3 18
 
-#define servostart  0
-
-#define statebegin  0
-#define statebtn1   1
-#define statebtn2   2
-
-#define servoopen   3
-#define servoclose  4
-
-Servo servo1;
-Servo servo2;
-Servo servo3;
-Servo servo4;
 Servo servo5;
 
 int minUs = 1000;
 int maxUs = 2000;
-
 
 int Button0val = 0;
 int Button1val = 0;
 int Button2val = 0;
 int Button3val = 0;
 
-
 int Button0val_last = 0;
 int Button1val_last = 0;
 int Button2val_last = 0;
 int Button3val_last = 0;
-
-int LEDPin_Blue = 7;
-int LEDPin_Green = 6;
-int LEDPin_Red = 5;
-
-int stateservo = servostart;
-int statebtn = statebegin;
 
 int counter = 0;
 
