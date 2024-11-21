@@ -1,3 +1,19 @@
+/* Aufgabe_A.cpp
+ by Nora Hüppi
+ 
+ When the Servo is on, the servo automaticly starts to go to 90°.
+ 
+ Connection of the Servos:
+ Servo Datapin (Orange) -> PIN12
+ Servo Vcc (Red) -> 5V
+ Servo GND (Brown) -> GND
+ 
+ created 28 Oktober 2024
+ by Nora Hüppi
+ edited 21 November 2024
+ by Nora Hüppi
+*/
+
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
