@@ -1,4 +1,4 @@
-< span stlke"color: blue;"># Servo Dokumentation</span>
+< span style"color: blue;"># Servo Dokumentation</span>
 ![Servos](image-1.png)
 
 Nora Hüppi  
