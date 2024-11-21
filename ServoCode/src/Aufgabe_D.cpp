@@ -5,13 +5,13 @@
  the servo stops rotating.
  If btn1 is pressed and hold the servo rotates back to 180°.
  The servo makes 1° steps in both directions.
-  
+
  Connection of the Servos:
  Servo Datapin (Orange/White) -> Pin12
  Servo Vcc (Red) -> 5V
  Servo GND (Brown) -> GND
  
- Connection of Button Move0:
+ Connection of BUTTONPIN0:
  3.3V -> PIN15
  
  Connection of Button Move180:
@@ -29,21 +29,17 @@
 #define SERVO5PIN 12 //Orange
 
 
-#define BUTTONPIN0 15
-#define BUTTONPIN1 16
+#define BUTTONMOVE180 15
+#define BUTTONMOVE0 16
 
-Servo servo1;
-Servo servo2;
-Servo servo3;
-Servo servo4;
 Servo servo5;
 
 int minUs = 1000;
 int maxUs = 2000;
 
 
-int Button0val = 0;
-int Button1val = 0;
+int ButtonMove180val = 0;
+int ButtonMove0val = 0;
 
 int pos = 0;      // position in degrees
 ESP32PWM pwm;
@@ -60,8 +56,8 @@ void setup() {
   Serial.begin(9600);
   
   
-  pinMode(BUTTONPIN0, INPUT_PULLUP);
-  pinMode(BUTTONPIN1, INPUT_PULLUP);
+  pinMode(BUTTONMOVE180, INPUT_PULLUP);
+  pinMode(BUTTONMOVE0, INPUT_PULLUP);
 
   pinMode(SERVO5PIN, OUTPUT);
 
@@ -72,18 +68,18 @@ void setup() {
 
 //Aufgabe D)
 void loop() {
-  Button0val = digitalRead(BUTTONPIN0);
-  Button1val = digitalRead(BUTTONPIN1);
+  ButtonMove180val = digitalRead(BUTTONMOVE180);
+  ButtonMove0val = digitalRead(BUTTONMOVE0);
   
-  if(Button0val == LOW) {
-    for(pos; pos >= 180; pos++){
-      servo1.write(pos);
+  if(ButtonMove180val == LOW) {
+    for(pos; pos <= 180; pos++){
+      servo5.write(pos);
       delay(100);
     }
   }
-  else if(Button1val <= LOW) {
-    for(pos; pos == 0; pos--){
-      servo1.write(pos);
+  else if(ButtonMove0val == LOW) {
+    for(pos; pos >= 0; pos--){
+      servo5.write(pos);
       delay(100);
    }
   }
