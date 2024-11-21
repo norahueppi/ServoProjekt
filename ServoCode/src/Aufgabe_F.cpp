@@ -1,3 +1,37 @@
+/* Aufgabe_F.cpp
+ by Nora Hüppi
+ 
+ Like in assigment D and E the servo rotates vrom 180° t0 0° if btnmove0 is pressed, 
+ when realised the servo stops. and vice verca if btnmove180 is pressed an realised.
+ it still makes 1° steps in both directions. The rotation speed goes faster after 
+ every 10 repetitions. Additopnally if you stop the rotation of the servo you can
+ press btnsave for a short moment so that a flak is detected and it will save the position
+ of the servo in an array. You can safe 10 positions. If you press the btnstart and a flank is
+ detected the servo will drive these 10 saved positions, one by one int the order you saved them.
+
+ Connection of the Servos:
+ Servo Datapin (Orange/White) -> Pin12
+ Servo Vcc (Red) -> 5V
+ Servo GND (Brown) -> GND
+ 
+ Connection of BUTTONMOVE180:
+ 3.3V -> PIN15
+ 
+ Connection of BUTTONMOVE0:
+ 3.3V -> PIN16
+
+ Connection of BUTTONSAVE:
+ 3.3V -> PIN17
+
+ Connection of BUTTONSTART:
+ 3.3V -> PIN18
+
+ created 28 Oktober 2024
+ by Nora Hüppi
+ edited 21 November 2024
+ by Nora Hüppi
+*/
+
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
@@ -79,7 +113,7 @@ void loop(){
     else{
         Delay = 100;
     }
-    
+
     if(ButtonMove0val == LOW) {
         for(pos; pos >= 0; pos--){
             servo1.write(pos);

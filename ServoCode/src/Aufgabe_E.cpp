@@ -3,7 +3,7 @@
  
  Like in assigment D the servo rotates vrom 180° t0 0° if btnmove0 is pressed, 
  when realised the servo stops. and vice verca if btnmove180 is pressed an realised.
- it still makes 1° steps in both directions,  just this time de rotation speed goes 
+ it still makes 1° steps in both directions,  just this time the rotation speed goes 
  faster after every 10 repetitions.
 
  Connection of the Servos:
