@@ -1,3 +1,28 @@
+/* Aufgabe_C.cpp
+ by Nora Hüppi
+ 
+ As long as btn0 i spressed the servo rotates from 180° to 0°, if the bt0 is released
+ the servo stops rotating.
+ If btn1 is pressed and hold the servo rotates back to 180°.
+ The servo makes 1° steps in both directions.
+  
+ Connection of the Servos:
+ Servo Datapin (Orange/White) -> Pin12
+ Servo Vcc (Red) -> 5V
+ Servo GND (Brown) -> GND
+ 
+ Connection of Button Move0:
+ 3.3V -> PIN15
+ 
+ Connection of Button Move180:
+ 3.3V -> PIN16
+ 
+ created 28 Oktober 2024
+ by Nora Hüppi
+ edited 21 November 2024
+ by Nora Hüppi
+*/
+
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
