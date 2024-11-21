@@ -3,6 +3,8 @@
 
 #define SERVO5PIN 12 //Orange
 
+#define BUTTONMOVE180 15
+#define BUTTONMOVE0 16
 
 Servo servo5;
 
@@ -10,6 +12,8 @@ int minUs = 1000;
 int maxUs = 2000;
 
 
+int ButtonMove180val = 0;
+int ButtonMove0val = 0;
 
 int counter = 0;
 
@@ -29,6 +33,10 @@ void setup() {
 
   Serial.begin(9600);
 
+  pinMode(BUTTONMOVE180, INPUT_PULLUP);
+  pinMode(BUTTONMOVE0, INPUT_PULLUP);
+
+  pinMode(SERVO5PIN, OUTPUT);
 
   servo5.setPeriodHertz(50);      // Standard 50hz servo
 
@@ -37,12 +45,12 @@ void setup() {
 
 //Aufgabe E)
 void loop(){
-  Button0val = digitalRead(BUTTONPIN0);
-  Button1val = digitalRead(BUTTONPIN1);
+  ButtonMove180val = digitalRead(BUTTONMOVE180);
+  ButtonMove0val = digitalRead(BUTTONMOVE0);
 
-  if(Button0val == LOW) {
+  if(ButtonMove180val == LOW) {
     for(pos; pos >= 180; pos++){
-      servo1.write(pos);
+      servo5.write(pos);
       counter++;
       delay(Delay);
       if(counter >= 10){
@@ -56,9 +64,9 @@ void loop(){
   else{
     Delay = 100;
   }
-  if(Button1val <= LOW) {
+  if(ButtonMove0val <= LOW) {
     for(pos; pos == 0; pos--){
-      servo1.write(pos);
+      servo5.write(pos);
       delay(100);
       counter++;
       delay(Delay);
