@@ -15,4 +15,10 @@ Der Servo-Motor erzeugt Spannung, Geschwindigkeit und Drehmomente. Dieser Motor 
 Ein PWM-Signal oder besser gesagt ein Pulsweitenmodulation-Signal dient zum Ansteuern von zum Beispiel Glühbirnen oder auch eben Servo-Motoren also allgemein dient es zur Ansteuerung von Aktoren, die aber nicht dauerhaft gestromt werden sollen oder können. Und ein PWM ist ein Signal, das aus einer Abfolge von kurzen Pulsen besteht. Die Breite der Pulse ändert sich, um verschiedene Informationen zu übertragen. Zum Beispiel wird PWM auch oft verwendet, um die Helligkeit von LEDs oder die Geschwindigkeit eben von Motoren zu steuern, wie oben schon erwähnt. Und jetzt zum Beispiel möchte ich die Helligkeit eben von einer LED steuern. Anstatt die LED einfach Ein oder Auszuschalten, wird die Pulsbreite verändert. Eine längere Pulsbreite bedeutet eine höhere Helligkeit, während eine kürzere Pulsbreite eine geringere Helligkeit ergibt. Das ermöglicht eine Präzise Steuerung.
 
 4. **Wie wird ein Servo angesteuert?**  
-Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Signal ist. Das Steuersignal besteht aus einer Serie von Pulsen, bei denen die Pulsbreite die Position des Servos bestimmt. Wenn das Steuersignal eine kurze Pulsbreite hat, dreht sich der Servo in eine Richtung. Bei einer längeren Pulsbreite dreht er sich in die andere Richtung. Die Mitte des Steuersignals entspricht der Neutralen Position des Servos. So kann man die Position des Servos präzise steuern
+Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Signal ist. Das Steuersignal besteht aus einer Serie von Pulsen, bei denen die Pulsbreite die Position des Servos bestimmt. Wenn das Steuersignal eine kurze Pulsbreite hat, dreht sich der Servo in eine Richtung. Bei einer längeren Pulsbreite dreht er sich in die andere Richtung. Die Mitte des Steuersignals entspricht der Neutralen Position des Servos. So kann man die Position des Servos präzise steuern.
+
+5. **Ansteuerung und Messmittel**  
+    - ESP32
+    - PlatformIO
+    - Streckbrett
+    - 5 Servos
