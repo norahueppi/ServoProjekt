@@ -99,7 +99,7 @@ void loop(){
 
     if(ButtonMove180val == LOW) {
         for(pos; pos <= 180; pos++){
-            servo1.write(pos);
+            servo5.write(pos);
             counter++;
             delay(Delay);
             if(counter >= 10){
@@ -116,7 +116,7 @@ void loop(){
 
     if(ButtonMove0val == LOW) {
         for(pos; pos >= 0; pos--){
-            servo1.write(pos);
+            servo5.write(pos);
             delay(100);
             counter++;
             delay(Delay);
@@ -142,7 +142,7 @@ void loop(){
 
     if((ButtonStartval != ButtonStartval_last) && (ButtonStartval == LOW)){
         for(int i = 0; i <= 9; i++){
-            servo1.write(save[i]);
+            servo5.write(Save[i]);
             delay(500);
         }
     }
