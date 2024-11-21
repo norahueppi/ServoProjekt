@@ -1,4 +1,4 @@
-/* Aufgabe_C.cpp
+/* Aufgabe_D.cpp
  by Nora Hüppi
  
  As long as btn0 i spressed the servo rotates from 180° to 0°, if the bt0 is released

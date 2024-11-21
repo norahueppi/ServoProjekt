@@ -1,3 +1,26 @@
+/* Aufgabe_C.cpp
+ by Nora Hüppi
+ 
+ If the Servo is on the servo starts to drive to 10 different pointer positions with a 100ms delay.
+ Those pointer positions are Predefined.
+
+ Connection of the Servos:
+ Servo Datapin (Orange/White) -> Pin12
+ Servo Vcc (Red) -> 5V
+ Servo GND (Brown) -> GND
+ 
+ Connection of BUTTONPIN0:
+ 3.3V -> PIN15
+ 
+ Connection of Button Move180:
+ 3.3V -> PIN16
+ 
+ created 28 Oktober 2024
+ by Nora Hüppi
+ edited 21 November 2024
+ by Nora Hüppi
+*/
+
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
