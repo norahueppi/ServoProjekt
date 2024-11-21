@@ -1,3 +1,26 @@
+/* Aufgabe_B.cpp
+ by Nora Hüppi
+ 
+ If a flank is detected of ButtonMove180 the servo will go to 180°.
+ If a flank of ButtonMove0 is detected the servo will go to 0°.
+
+ Connection of the Servo5:
+ Servo Datapin (Orange/White) -> Pin12
+ Servo Vcc (Red) -> 5V
+ Servo GND (Black) -> GND
+ 
+ Connection of BUTTONMove180:
+ 3.3V -> PIN15
+ 
+ Connection of Button BUTTONMOVE0:
+ 3.3V -> PIN16
+ 
+ created 28 Oktober 2024
+ by Nora Hüppi
+ edited 21 November 2024
+ by Nora Hüppi
+*/
+
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
@@ -43,6 +66,7 @@ void setup() {
 //Aufgabe B)
 void loop() {
   delay(100);
+
   ButtonMove180val = digitalRead(BUTTONMOVE180);
   ButtonMove0val = digitalRead(BUTTONMOVE0);
 
