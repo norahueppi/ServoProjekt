@@ -28,11 +28,13 @@
 
 #define SERVO5PIN 12 //Orange
 
-
-#define BUTTONMOVE180 15
-#define BUTTONMOVE0 16
+#define BUTTONMOVE180 15 //Lila
+#define BUTTONMOVE0 16 //Weiss
 
 Servo servo5;
+
+int LEDPin_Blue = 7;
+int LEDPin_Red = 5;
 
 int minUs = 1000;
 int maxUs = 2000;
@@ -61,6 +63,9 @@ void setup() {
 
   pinMode(SERVO5PIN, OUTPUT);
 
+  pinMode(LEDPin_Blue, OUTPUT);
+  pinMode(LEDPin_Red, OUTPUT);
+
   servo5.setPeriodHertz(50);      // Standard 50hz servo
 
   servo5.attach(SERVO5PIN, minUs, maxUs);
@@ -68,19 +73,26 @@ void setup() {
 
 //Aufgabe D)
 void loop() {
+  digitalWrite(LEDPin_Blue, HIGH);
+  digitalWrite(LEDPin_Red, HIGH);
+
   ButtonMove180val = digitalRead(BUTTONMOVE180);
   ButtonMove0val = digitalRead(BUTTONMOVE0);
   
   if(ButtonMove180val == LOW) {
-    for(pos; pos <= 180; pos++){
-      servo5.write(pos);
-      delay(100);
+    pos++;
+    servo5.write(pos);
+    delay(15);
+    if(pos >= 180){
+      pos = 180;
     }
   }
   else if(ButtonMove0val == LOW) {
-    for(pos; pos >= 0; pos--){
-      servo5.write(pos);
-      delay(100);
-   }
+    pos--;
+    servo5.write(pos);
+    delay(15);
+    if(pos <= 0){
+      pos = 0;
+    }
   }
 }
