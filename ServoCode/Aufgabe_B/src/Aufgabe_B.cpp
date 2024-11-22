@@ -26,8 +26,8 @@
 
 #define SERVO5PIN 12 //Orange
 
-#define BUTTONMOVE180 15
-#define BUTTONMOVE0 16
+#define BUTTONMOVE180 15 //Lila
+#define BUTTONMOVE0 16 //Weiss
 
 Servo servo5;
 
@@ -39,6 +39,8 @@ int ButtonMove0val = 0;
 
 int ButtonMove180val_last = 0;
 int ButtonMove0val_last = 0;     
+
+int LEDPin_Red = 5;
 
 ESP32PWM pwm;
 
@@ -58,6 +60,8 @@ void setup() {
 
   pinMode(SERVO5PIN, OUTPUT);
 
+  pinMode(LEDPin_Red, OUTPUT);
+
   servo5.setPeriodHertz(50);      // Standard 50hz servo
 
   servo5.attach(SERVO5PIN, minUs, maxUs);
@@ -66,6 +70,8 @@ void setup() {
 //Aufgabe B)
 void loop() {
   delay(100);
+
+  digitalWrite(LEDPin_Red, HIGH);
 
   ButtonMove180val = digitalRead(BUTTONMOVE180);
   ButtonMove0val = digitalRead(BUTTONMOVE0);

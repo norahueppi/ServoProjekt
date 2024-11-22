@@ -28,6 +28,8 @@
 
 Servo servo5;
 
+int LEDPin_Green = 6;
+
 int minUs = 1000;
 int maxUs = 2000;
 
@@ -46,25 +48,35 @@ void setup() {
   
   pinMode(SERVO5PIN, OUTPUT);
 
+  pinMode(LEDPin_Green, OUTPUT);
+
   servo5.setPeriodHertz(50);      // Standard 50hz servo
 
   servo5.attach(SERVO5PIN, minUs, maxUs);
 }
 
 //Aufgabe C)
-void loop(){
-  delay(100);
+void loop(){ 
+  digitalWrite(LEDPin_Green, HIGH);
+
+  delay(1000);
   servo5.write(40);
-  delay(100);
+  delay(1000);
   servo5.write(150);
-  delay(100);
+  delay(1000);
   servo5.write(20);
-  delay(100);
+  delay(1000);
   servo5.write(90);
-  delay(100);
-  servo5.write(60);
-  delay(100);
-  servo5.write(30);
-  delay(100);
-  servo5.write(100);
+  delay(1000);
+  servo5.write(10);
+  delay(1000);
+  servo5.write(130);
+  delay(1000);
+  servo5.write(70);
+  delay(1000);
+  servo5.write(160);
+  delay(1000);
+  servo5.write(80);
+  delay(1000);
+  servo5.write(180);
 }
