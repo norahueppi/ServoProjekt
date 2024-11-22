@@ -36,13 +36,17 @@ Servo servo5;
 int minUs = 1000;
 int maxUs = 2000;
 
-
 int ButtonMove180val = 0;
 int ButtonMove0val = 0;
 
-int counter = 0;
+int LEDPin_Blue = 7;
+int LEDPin_Green = 6;
+int LEDPin_Red = 5;
 
-int Delay = 100;
+int counter = 0;
+int Sekundencounter = 0;
+
+int Delay = 200;
 
 int pos = 0;      // position in degrees
 ESP32PWM pwm;
@@ -63,6 +67,10 @@ void setup() {
 
   pinMode(SERVO5PIN, OUTPUT);
 
+  pinMode(LEDPin_Red, OUTPUT);
+  pinMode(LEDPin_Blue, OUTPUT);
+  pinMode(LEDPin_Green, OUTPUT);
+
   servo5.setPeriodHertz(50);      // Standard 50hz servo
 
   servo5.attach(SERVO5PIN, minUs, maxUs);
@@ -73,37 +81,54 @@ void loop(){
   ButtonMove180val = digitalRead(BUTTONMOVE180);
   ButtonMove0val = digitalRead(BUTTONMOVE0);
 
+  digitalWrite(LEDPin_Blue, HIGH);
+  digitalWrite(LEDPin_Green, LOW);
+  digitalWrite(LEDPin_Red,HIGH);
+
   if(ButtonMove180val == LOW) {
-    for(pos; pos >= 180; pos++){
-      servo5.write(pos);
+    digitalWrite(LEDPin_Blue, HIGH);
+    digitalWrite(LEDPin_Green, LOW);
+    digitalWrite(LEDPin_Red,LOW);
+
+    pos++;
+    servo5.write(pos);
+    Sekundencounter++;
+    if(Sekundencounter >= 1000){
       counter++;
-      delay(Delay);
-      if(counter >= 10){
-        counter = 0;
-        if(Delay >= 10){
-          Delay -= 5;
-        }
+    }
+    
+    delay(Delay);
+    if(pos >= 180){
+      pos = 180;
+    }
+    if(counter >= 10){
+      if(Delay >= 10){
+        Delay -= 10;
       }
+      counter = 0;
     }
   }
-  else{
-    Delay = 100;
-  }
-  if(ButtonMove0val <= LOW) {
-    for(pos; pos == 0; pos--){
-      servo5.write(pos);
-      delay(100);
+
+  if(ButtonMove0val == LOW) {
+    digitalWrite(LEDPin_Blue, LOW);
+    digitalWrite(LEDPin_Green, LOW);
+    digitalWrite(LEDPin_Red,HIGH);
+
+    pos--;
+    servo5.write(pos);
+    Sekundencounter++;
+    if(Sekundencounter >= 1000){
       counter++;
-      delay(Delay);
-      if(counter >= 10){
-        counter = 0;
-        if(Delay >= 10){
-          Delay -= 5;
-        }
+    }
+    delay(Delay);
+    if(pos <= 0){
+      pos = 0;
+    }
+    if(counter >= 10){
+      if(Delay >= 10){
+        Delay -= 10;
       }
-   }
-  }
-  else{
-    Delay = 100;
+      counter = 0;
+    }
   }
 }
