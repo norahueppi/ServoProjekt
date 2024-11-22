@@ -80,6 +80,8 @@ void loop() {
   ButtonMove0val = digitalRead(BUTTONMOVE0);
   
   if(ButtonMove180val == LOW) {
+    digitalWrite(LEDPin_Blue, HIGH);
+    digitalWrite(LEDPin_Red, LOW);    
     pos++;
     servo5.write(pos);
     delay(15);
@@ -88,6 +90,8 @@ void loop() {
     }
   }
   else if(ButtonMove0val == LOW) {
+    digitalWrite(LEDPin_Blue, LOW);
+    digitalWrite(LEDPin_Red, HIGH);  
     pos--;
     servo5.write(pos);
     delay(15);
