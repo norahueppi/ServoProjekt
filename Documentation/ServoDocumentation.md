@@ -127,8 +127,9 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         
     - **Programmbeschreib**   
         Wie bei Aufgabe D fährt das Servo von 180° zu 0° wenn ButtonMove0 gedrückt ist und wenn der Knopf losgelassen wird dann bleibt das Servo Stehen, und umgekehrt wenn ButtonMove180 gedrückt und losgelassen wird.  
-        Es fährt immernoch in 1° schritten in beide richtungen. Nur diesesmal wird die rotation nach 10 wiederholungen immer schneller.  
-
+        Es fährt immernoch in 1° schritten in beide richtungen. Nur diesesmal wird die rotation nach 10 wiederholungen immer schneller.
+        
+        
     - **Bedienung und Test**  
 
 13. **Aufgabe G**
