@@ -1,5 +1,5 @@
 # Servo Dokumentation
-![Servos](Bild1_jpg)
+![Servos](Bild2.png)
 
 **Nora Hüppi**  
 **Hard- und Software Technik**  
