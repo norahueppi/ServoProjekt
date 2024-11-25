@@ -128,9 +128,19 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
     - **Programmbeschreib**   
         Wie bei Aufgabe D fährt das Servo von 180° zu 0° wenn ButtonMove0 gedrückt ist und wenn der Knopf losgelassen wird dann bleibt das Servo Stehen, und umgekehrt wenn ButtonMove180 gedrückt und losgelassen wird.  
         Es fährt immernoch in 1° schritten in beide richtungen. Nur diesesmal wird die rotation nach 10 wiederholungen immer schneller.
-        
+        Zusätzlich kann man auf ButtonSave drücken und wenn dort eine Flanke erkannt word speichert es die Position an der das Servo gerade steht.
+        Wenn mann 10 Positionen gespeichert hat dann kann man auf ButtonStart drücken und wenn dort eine Flanke erkannt wird dann fährt das Servo die gespeicherten Positionen ab.  
         
     - **Bedienung und Test**  
+        | Eingang                     | Ausgang                                    | Funktioniert?|
+        |----------------------------:|-------------------------------------------:|-------------:|
+        | ButtonMove180 gedrückt      | Servo fährt richtung 180°                  | Ja           |
+        | ButtonMove180 nicht gedrückt| Servo bleib stehen                         | Ja           |
+        | ButtonMove0 gedrückt        | Servo fährt richtung 0°                    | Ja           |
+        | ButtonMove0 nicht gedrückt  | Servo bleib stehen                         | Ja           |
+        | counter hat auf 10 gezählt  | Servo dreht sich schneller                 | Ja           | 
+        | ButtonSave flanke erkannt   | Speichert position von Servo               | Ja           |
+        | ButtonStart flanke erkannt  | Servo fährt die gespeicherten positionen ab| Ja           |  
 
 13. **Aufgabe G**
     - **Aufgabenstellung**  
@@ -139,7 +149,15 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
     - **Schema**  
          
     - **Programmbeschreib**  
+        Wenn beim ButtonMove180 eine Flanke erkannt wird dann fährt der Arm an eine stelle könnt einen Stift aufheben und den Stift an einer anderen stelle wieder absetzten.
+        Wenn beim ButtonMove0 eine Flanke erkannt wird macht es das gleiche nur von zweiten Punkt zum ersten.
 
     - **Bedienung und Test**  
+        | Eingang                     | Ausgang                      | Funktioniert?|
+        |----------------------------:|-----------------------------:|-------------:|
+        | ButtonMove180 Flanke erkannt| Servos fahren einen ablauf ab| Ja           |
+        | ButtonMove0 Flanke erkannt  | Servos fahren einen ablauf ab| Ja           |  
 
 14. **Fazit**
+    Ich habe gelernt mit einem ESP32 zu programmieren. PlattformIo habe ich näher kennengelernt. Dazu habe ich mich sehr mit Mark Downs auseinandergesetzt.
+    Ich habe gelernt wie ich ein 3.3V Signal auf ein 5V signal hochziehen kann.
