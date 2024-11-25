@@ -5,6 +5,22 @@
 **Hard- und Software Technik**  
 **EN22a**
 
+## Inhaltsverzeichnis  
+1. **Was ist ein Servo-Motor und wo wird dieser eigesetzt?**  
+2. **Wie Funktioniret ein Servo-Motor?**  
+3. **Was ist ein PWM-Signal?**  
+4. **Wie wird ein Servo angesteuert?**  
+5. **Ansteuerung und Messmittel**  
+6. **Aufbau**  
+7. **Aufgabe A**
+8. **Aufgabe B**  
+9. **Aufgabe C**  
+10. **Aufgabe D**  
+11. **Aufgabe E**  
+12. **Aufgabe F**  
+13. **Aufgabe G**  
+14. **Fazit**  
+
 1. **Was ist ein Servo-Motor und wo wird dieser eigesetzt?**  
 Ein Servo Motor wandelt elektrische Energie in mechanische Energie um. Diese Art von Motor wird für eine genaue Steuerung verwendet und man kann dazu verschiedene Anbauteile damit verbinden, Man kann die Position eines Servomotors mit einem Controller ansteuern zum Beispiel ist dies der Fall bei der Lenkung von ferngesteuerten Autos einsetzbar, bei Robotik oder auch bei Automatisierung Technik. Wenn man einen Gleichstrommotor an eine Stromquelle anschliessen dreht sich dieser die ganze Zeit aber bei einem Servo Motor ist das anders er dreht sich nicht sofort, wenn eine Spannung anliegt, sondern er empfängt er die Signale, die den Motor genau sagen, wie weit er sich drehen soll. Eigentlich dreht sich der Motor nur 180 Grad, aber man kann auch kleiner oder grössere werte bekommen. Es gibt auch verschiedene Modelle wie zum Beispiel Close Loop Modelle also einfach mit Geschlossener Regelkreis. Also normalerweise befindet sich drin im Loop so ein Stift, dass eine zu weite Drehung des Motors verhindert. Manche haben aber den Stift nicht, was so viel heisst, dass sich der Stift um 360 Grad drehen kann das wären dann Motoren mit Offener Regelkreis.
 
@@ -45,7 +61,7 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         | Aus    | servo aus          | Ja           |
         | Ein    | servo fährt auf 90°| Ja           |  
 
-8. **Aufgabe B**
+8. **Aufgabe B**  
     - **Aufgabenstellung**  
         Mit Bit0=0 fährt der Servo auf 0°, mit Bit0=1 auf 180°.  
 
@@ -62,7 +78,7 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         | ButtonMove180| servo fährt auf 180°| Ja           |
         | ButtonMove0  | servo fährt auf 0°  | Ja           |  
 
-9. **Aufgabe C**
+9. **Aufgabe C**  
     - **Aufgabenstellung**  
         Der Servo fährt 10 vorgegebene Zeigerstellungen an.  
 
@@ -78,7 +94,7 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         | Aus    | servo aus                   | Ja           |
         | Ein    | servo fährt 10 positionen ab| Ja           |  
 
-10. **Aufgabe D**
+10. **Aufgabe D**  
     - **Aufgabenstellung**  
         Mit Bit0 und Bit1 wird die Zeigerstellung verändert. Dabei darf der zeiger den Bereich 0°...180° nicht verlassen.  
 
@@ -98,7 +114,7 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         | ButtonMove0 gedrückt        | Servo fährt richtung 0°  | Ja           |
         | ButtonMove0 nicht gedrückt  | Servo bleib stehen       | Ja           |  
 
- 12. **Aufgabe E**
+ 11. **Aufgabe E**  
      - **Aufgabenstellung**  
         Mit Bit0 und Bit1 wird die Zeigerstellung verändert. Dabei darf der Zeiger den Bereich 0°...180° nicht verlassen, aber           nach bestätigung von Bit0 oder Bit1 ist die Drehgeschwindigkeit zuerst langsam, nach 1s zunehmend schneller. (Tip: Zeit          erst nach 10-facher Wiederholung ändern).
 
@@ -141,7 +157,7 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         | ButtonSave flanke erkannt   | Speichert position von Servo               | Ja           |
         | ButtonStart flanke erkannt  | Servo fährt die gespeicherten positionen ab| Ja           |  
 
-13. **Aufgabe G**
+13. **Aufgabe G**  
     - **Aufgabenstellung**  
         Eigene Varianten und Ideen.  
 
