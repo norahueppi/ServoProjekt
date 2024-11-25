@@ -44,7 +44,7 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         |-------:|-------------------:|-------------:|
         | Aus    | servo aus          | Ja           |
         | Ein    | servo fährt auf 90°| Ja           |  
-        
+
 8. **Aufgabe B**
     - **Aufgabenstellung**  
         Mit Bit0=0 fährt der Servo auf 0°, mit Bit0=1 auf 180°.  
@@ -57,7 +57,10 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         Wenn eine Klanke vom Konopf ButtonMove0 erkannt wird dann fährt das Servo auf 0°.  
 
     - **Bedienung und Test**  
-
+        | Eingang      | Ausgang             | Funktioniert?|
+        |-------------:|--------------------:|-------------:|
+        | ButtonMove180| servo fährt auf 180°| Ja           |
+        | ButtonMove0  | servo fährt auf 0°  | Ja           |  
 9. **Aufgabe C**
     - **Aufgabenstellung**  
         Der Servo fährt 10 vorgegebene Zeigerstellungen an.  
