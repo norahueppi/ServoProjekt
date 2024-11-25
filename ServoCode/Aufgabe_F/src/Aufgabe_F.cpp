@@ -104,53 +104,56 @@ void setup() {
 
 //Aufgabe F)
 void loop(){
-    ButtonMove180val = digitalRead(BUTTONMOVE180); //Liest Button ein
-    ButtonMove0val = digitalRead(BUTTONMOVE0); //Liest Button ein
-    ButtonSaveval = digitalRead(BUTTONSAVE); //Liest Button ein
-    ButtonStartval = digitalRead(BUTTONSTART); //Liest Button ein
+    ButtonMove180val = digitalRead(BUTTONMOVE180);          //Liest Button ein
+    ButtonMove0val = digitalRead(BUTTONMOVE0);              //Liest Button ein
+    ButtonSaveval = digitalRead(BUTTONSAVE);                //Liest Button ein
+    ButtonStartval = digitalRead(BUTTONSTART);              //Liest Button ein
 
-    digitalWrite(LEDPin_Blue, HIGH); //Schreibe LED auf HIGH
-    digitalWrite(LEDPin_Green, HIGH); //Schreibe LED auf HIGH
-    digitalWrite(LEDPin_Red,LOW); //SChreibe LED auf LOW
+    digitalWrite(LEDPin_Blue, HIGH);                        //Schreibe LED auf HIGH
+    digitalWrite(LEDPin_Green, HIGH);                       //Schreibe LED auf HIGH
+    digitalWrite(LEDPin_Red,LOW);                           //SChreibe LED auf LOW
 
-    if(ButtonMove180val == LOW) { //Schaut ob Button auf LOW gezogen ist
-        digitalWrite(LEDPin_Blue, HIGH); //Schreibe LED auf HIGH
-        digitalWrite(LEDPin_Green, LOW); //SChreibe LED auf LOW
-        digitalWrite(LEDPin_Red,LOW); //SChreibe LED auf LOW
+    if(ButtonMove180val == LOW) {                           //Schaut ob Button auf LOW gezogen ist
+        digitalWrite(LEDPin_Blue, HIGH);                    //Schreibe LED auf HIGH
+        digitalWrite(LEDPin_Green, LOW);                    //SChreibe LED auf LOW
+        digitalWrite(LEDPin_Red,LOW);                       //SChreibe LED auf LOW
 
-        Delay = 100; //Setzt delay auf 100
-        for(pos; pos <= 180; pos ++){ //Bleibt solange im Loop bis pos auf 180 ist
-            servo5.write(pos); //schreibt die position ins Servo
-            counter++; //Zählt counter hoch
-            ButtonMove180val = digitalRead(BUTTONMOVE180); //Liest Button ein
+        Delay = 100;                                        //Setzt delay auf 100
+        for(pos; pos <= 180; pos ++){                       //Bleibt solange im Loop bis pos auf 180 ist
+            servo5.write(pos);                              //schreibt die position ins Servo
+            counter++;                                      //Zählt counter hoch
+            ButtonMove180val = digitalRead(BUTTONMOVE180);  //Liest Button ein
             //Wenn Button HIGH ist dann geht es asu dem For
             if (ButtonMove180val == HIGH){ 
                 break;
             }
-            delay(Delay); //
+            delay(Delay);                                   //Verzögert um die Variebel Delay
+            //Delay wird hier heruntergezählt so das das Delay immer kürzer wird
             if(counter >= 10){
                 if(Delay >= 10){
                     Delay -= 10;
                 }
-                counter = 0;
+                counter = 0;                                //Counter wird wieder au Null gesetzt
             }
         }
     }
 
-    if(ButtonMove0val == LOW) {
-        digitalWrite(LEDPin_Blue, LOW);
-        digitalWrite(LEDPin_Green, HIGH); //Schreibe LED auf HIGH
-        digitalWrite(LEDPin_Red,LOW);
+    if(ButtonMove0val == LOW) {                             //Schaut ob Button auf LOW gezogen ist
+        digitalWrite(LEDPin_Blue, LOW);                     //schreibt LED auf LOW
+        digitalWrite(LEDPin_Green, HIGH);                   //Schreibe LED auf HIGH
+        digitalWrite(LEDPin_Red,LOW);                       //schreibt LED auf LOW
 
-        Delay = 100;
-        for(pos; pos <= 180; pos ++){
-            servo5.write(pos);
-            counter++;
-            ButtonMove0val = digitalRead(BUTTONMOVE0);
+        Delay = 100;                                        //Setzt delay auf 100
+        for(pos; pos <= 180; pos ++){                       //Bleibt solange im Loop bis pos auf 180 ist
+            servo5.write(pos);                              //schreibt die position ins Servo
+            counter++;                                      //Zählt counter hoch
+            ButtonMove0val = digitalRead(BUTTONMOVE0);      //Liest Button ein
+            //Wenn Button HIGH ist dann geht es asu dem For
             if (ButtonMove0val == HIGH){
                 break;
             }
-            delay(Delay);
+            delay(Delay);                                    //Verspätet um die Variebel Delay
+            //Delay wird hier heruntergezählt so das das Delay immer kürzer wird
             if(counter >= 10){
                 if(Delay >= 10){
                     Delay -= 10;
@@ -160,29 +163,31 @@ void loop(){
         }
     }
 
-    if((ButtonSaveval != ButtonSaveval_last) && (ButtonSaveval == LOW)){
-        digitalWrite(LEDPin_Blue, LOW);
-        digitalWrite(LEDPin_Green, LOW);
-        digitalWrite(LEDPin_Red,HIGH); //Schreibe LED auf HIGH      
+    if((ButtonSaveval != ButtonSaveval_last) && (ButtonSaveval == LOW)){    //Erkennt eine Flanke
+        digitalWrite(LEDPin_Blue, LOW);                                     //Schreibt LED auf LOW
+        digitalWrite(LEDPin_Green, LOW);                                    //Schreibt LED auf LOW
+        digitalWrite(LEDPin_Red,HIGH);                                      //Schreibe LED auf HIGH      
 
-        Save[savespace] = pos;
-        savespace++;
-        if(savespace >= 9){
-            savespace = 0;
+        Save[savespace] = pos;                                              //Speichert die Position in die Varibel Savespace die in einem Array aufgelistet ist
+        savespace++;                                                        //Array position wird hochgezählt
+         //Wenn Array position 9 gefüllt wird wird array position 0 überschrieben
+        if(savespace >= 9){                                                
+            savespace = 0;                      
         }
     }
 
-    if((ButtonStartval != ButtonStartval_last) && (ButtonStartval == LOW)){
-        savespace = 0;
-        for(savespace >= 0; savespace <= 9; savespace++){
-            digitalWrite(LEDPin_Blue, LOW);
-            digitalWrite(LEDPin_Green, HIGH);
-            digitalWrite(LEDPin_Red,HIGH);         
-            servo5.write(Save[savespace]);
-            delay(1000);
+    if((ButtonStartval != ButtonStartval_last) && (ButtonStartval == LOW)){ //Erkennt eine Flanke
+        savespace = 0;                                                      //Savespace wird auf 0 Gesetzt
+        for(savespace >= 0; savespace <= 9; savespace++){                   //Die Savespave positionen weden von 0 bis 9 hochgezählt
+            digitalWrite(LEDPin_Blue, LOW);                                 //Schreibt LED auf LOW
+            digitalWrite(LEDPin_Green, HIGH);                               //Schreibt LED auf HIGH
+            digitalWrite(LEDPin_Red,HIGH);                                  //Schreibt LED auf HIGH     
+            servo5.write(Save[savespace]);                                  //Servo fährt die Array positionen ab                       
+            delay(1000);                                                    //Es wird eine verzögerung von 1000ms angegeben
         }
     }
 
+    //Damit die Flankensteuerung funktioniert
     ButtonSaveval_last = ButtonSaveval;
     ButtonStartval_last = ButtonStartval;
 }
