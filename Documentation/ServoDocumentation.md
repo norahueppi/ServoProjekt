@@ -11,7 +11,7 @@ Ein Servo Motor wandelt elektrische Energie in mechanische Energie um. Diese Art
 2. **Wie Funktioniret ein Servo-Motor?**  
 Der Servo-Motor erzeugt Spannung, Geschwindigkeit und Drehmomente. Dieser Motor arbeitet nur als Teil von einem geschlossenen Regelkreissystem. Dieses Regelkreissystem liefert Geschwindigkeit und auch Drehmomente. Dies wird vom Servoregler vorgegeben und dann für das Schliessen des Systems wird ein Rückfahrsysteme genutzt. Das System hier ist in der Lage, Informationen über den Strom und der Geschwindigkeit zu liefern.
 
-3. **Wie ist ein Servo angesteuert?**  
+3. **Was ist ein PWM-Signal?**  
 Ein PWM-Signal oder besser gesagt ein Pulsweitenmodulation-Signal dient zum Ansteuern von zum Beispiel Glühbirnen oder auch eben Servo-Motoren also allgemein dient es zur Ansteuerung von Aktoren, die aber nicht dauerhaft gestromt werden sollen oder können. Und ein PWM ist ein Signal, das aus einer Abfolge von kurzen Pulsen besteht. Die Breite der Pulse ändert sich, um verschiedene Informationen zu übertragen. Zum Beispiel wird PWM auch oft verwendet, um die Helligkeit von LEDs oder die Geschwindigkeit eben von Motoren zu steuern, wie oben schon erwähnt. Und jetzt zum Beispiel möchte ich die Helligkeit eben von einer LED steuern. Anstatt die LED einfach Ein oder Auszuschalten, wird die Pulsbreite verändert. Eine längere Pulsbreite bedeutet eine höhere Helligkeit, während eine kürzere Pulsbreite eine geringere Helligkeit ergibt. Das ermöglicht eine Präzise Steuerung.
 
 4. **Wie wird ein Servo angesteuert?**  
