@@ -61,6 +61,7 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         |-------------:|--------------------:|-------------:|
         | ButtonMove180| servo fährt auf 180°| Ja           |
         | ButtonMove0  | servo fährt auf 0°  | Ja           |  
+
 9. **Aufgabe C**
     - **Aufgabenstellung**  
         Der Servo fährt 10 vorgegebene Zeigerstellungen an.  
@@ -89,8 +90,14 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
        Wenn ButtonMove0 gedrückt ist dann fährt das Servo von 180° zu 0° und auch hier bleibt das Servo stehen wenn ButtonMove0 losgelassen wird.  
 
     - **Bedienung und Test**  
+        | Eingang                     | Ausgang                  | Funktioniert?|
+        |----------------------------:|-------------------------:|-------------:|
+        | ButtonMove180 gedrückt      | Servo fährt richtung 180°| Ja           |
+        | ButtonMove180 nicht gedrückt| Servo bleib stehen       | Ja           |
+        | ButtonMove0 gedrückt        | Servo fährt richtung 0°  | Ja           |
+        | ButtonMove0 nciht gedrückt  | Servo bleib stehen       | Ja           |  
 
-11. **Aufgabe E**
+ 11. **Aufgabe E**
     - **Aufgabenstellung**  
         Mit Bit0 und Bit1 wird die Zeigerstellung verändert. Dabei darf der Zeiger den Bereich 0°...180° nicht verlassen, aber nach bestätigung von Bit0 oder Bit1 ist die Drehgeschwindigkeit zuerst langsam, nach 1s zunehmend schneller. (Tip: Zeit erst nach 10-facher Wiederholung ändern).  
 
