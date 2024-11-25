@@ -41,10 +41,12 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
     - 5 Servos  
 
 6. **Aufbau**  
+    ![Aufbau](Image.png)  
+
     - **Blockschaltbild**  
         ![Blockschaltbild](Servo_Blockschaltbild.drawio.png)  
     - **Schema**  
-        ![Schema](Image.png)  
+        ![Schema](Aufbau.png)  
 
 ## Aufgaben  
 7. **Aufgabe A**
