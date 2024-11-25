@@ -34,7 +34,7 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         Beim Einschalten fährt der Servo auf 90°.  
 
     - **Schema**  
-        ![Schema](Image%20(1)).png
+        ![Schema](Image(1).png)
     - **Programmbeschreib**  
         Wenn das Servo strom bekommt fährt das Servo auf 90°.  
 
