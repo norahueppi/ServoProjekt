@@ -83,13 +83,16 @@ void setup() {
 
     Serial.begin(9600);
 
+    //Zieht Button intern auf HIGH
     pinMode(BUTTONMOVE180, INPUT_PULLUP);
     pinMode(BUTTONMOVE0, INPUT_PULLUP);
     pinMode(BUTTONSAVE, INPUT_PULLUP);
     pinMode(BUTTONSTART, INPUT_PULLUP);
 
+    //Bestimmt Servo als Output
     pinMode(SERVO5PIN, OUTPUT);
 
+    //Besstimmt LEDs als Output
     pinMode(LEDPin_Red, OUTPUT);
     pinMode(LEDPin_Blue, OUTPUT);
     pinMode(LEDPin_Green, OUTPUT);
@@ -101,29 +104,30 @@ void setup() {
 
 //Aufgabe F)
 void loop(){
-    ButtonMove180val = digitalRead(BUTTONMOVE180);
-    ButtonMove0val = digitalRead(BUTTONMOVE0);
-    ButtonSaveval = digitalRead(BUTTONSAVE);
-    ButtonStartval = digitalRead(BUTTONSTART);
+    ButtonMove180val = digitalRead(BUTTONMOVE180); //Liest Button ein
+    ButtonMove0val = digitalRead(BUTTONMOVE0); //Liest Button ein
+    ButtonSaveval = digitalRead(BUTTONSAVE); //Liest Button ein
+    ButtonStartval = digitalRead(BUTTONSTART); //Liest Button ein
 
-    digitalWrite(LEDPin_Blue, HIGH);
-    digitalWrite(LEDPin_Green, HIGH);
-    digitalWrite(LEDPin_Red,LOW);
+    digitalWrite(LEDPin_Blue, HIGH); //Schreibe LED auf HIGH
+    digitalWrite(LEDPin_Green, HIGH); //Schreibe LED auf HIGH
+    digitalWrite(LEDPin_Red,LOW); //SChreibe LED auf LOW
 
-    if(ButtonMove180val == LOW) {
-        digitalWrite(LEDPin_Blue, HIGH);
-        digitalWrite(LEDPin_Green, LOW);
-        digitalWrite(LEDPin_Red,LOW);
+    if(ButtonMove180val == LOW) { //Schaut ob Button auf LOW gezogen ist
+        digitalWrite(LEDPin_Blue, HIGH); //Schreibe LED auf HIGH
+        digitalWrite(LEDPin_Green, LOW); //SChreibe LED auf LOW
+        digitalWrite(LEDPin_Red,LOW); //SChreibe LED auf LOW
 
-        Delay = 100;
-        for(pos; pos <= 180; pos ++){
-            servo5.write(pos);
-            counter++;
-            ButtonMove180val = digitalRead(BUTTONMOVE180);
-            if (ButtonMove180val == HIGH){
+        Delay = 100; //Setzt delay auf 100
+        for(pos; pos <= 180; pos ++){ //Bleibt solange im Loop bis pos auf 180 ist
+            servo5.write(pos); //schreibt die position ins Servo
+            counter++; //Zählt counter hoch
+            ButtonMove180val = digitalRead(BUTTONMOVE180); //Liest Button ein
+            //Wenn Button HIGH ist dann geht es asu dem For
+            if (ButtonMove180val == HIGH){ 
                 break;
             }
-            delay(Delay);
+            delay(Delay); //
             if(counter >= 10){
                 if(Delay >= 10){
                     Delay -= 10;
@@ -135,7 +139,7 @@ void loop(){
 
     if(ButtonMove0val == LOW) {
         digitalWrite(LEDPin_Blue, LOW);
-        digitalWrite(LEDPin_Green, HIGH);
+        digitalWrite(LEDPin_Green, HIGH); //Schreibe LED auf HIGH
         digitalWrite(LEDPin_Red,LOW);
 
         Delay = 100;
@@ -159,7 +163,7 @@ void loop(){
     if((ButtonSaveval != ButtonSaveval_last) && (ButtonSaveval == LOW)){
         digitalWrite(LEDPin_Blue, LOW);
         digitalWrite(LEDPin_Green, LOW);
-        digitalWrite(LEDPin_Red,HIGH);       
+        digitalWrite(LEDPin_Red,HIGH); //Schreibe LED auf HIGH      
 
         Save[savespace] = pos;
         savespace++;
