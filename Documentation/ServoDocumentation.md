@@ -158,6 +158,6 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         | ButtonMove180 Flanke erkannt| Servos fahren einen ablauf ab| Ja           |
         | ButtonMove0 Flanke erkannt  | Servos fahren einen ablauf ab| Ja           |  
 
-14. **Fazit**
+14. **Fazit**  
     Ich habe gelernt mit einem ESP32 zu programmieren. PlattformIo habe ich näher kennengelernt. Dazu habe ich mich sehr mit Mark Downs auseinandergesetzt.
     Ich habe gelernt wie ich ein 3.3V Signal auf ein 5V signal hochziehen kann.
