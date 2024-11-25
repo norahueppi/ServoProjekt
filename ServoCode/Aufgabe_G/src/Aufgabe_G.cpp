@@ -21,6 +21,7 @@
 
 #define servoopen   3
 #define servoclose  4
+#define servomove   5
 
 Servo servo1;
 Servo servo2;
@@ -138,33 +139,35 @@ void loop() {
             digitalWrite(LEDPin_Red, LOW);
             digitalWrite(LEDPin_Green, LOW);
 
-        switch(stateservo){
-            case servoopen:
-                servo1.write(50);
-                servo2.write(140);
-                servo3.write(20);
-                servo4.write(100);
-                servo5.write(180);
+            switch(stateservo){
+                case servoopen:
+                    servo1.write(50);
+                    servo2.write(140);
+                    servo3.write(20);
+                    servo4.write(100);
+                    servo5.write(180);
 
-                counter ++;
-                if(counter >= 25){
-                    stateservo = servoclose;
-                    counter = 0;
-                }
-
-                break;
-
-            case servoclose:
-                servo5.write(0);
-                if(SERVO5PIN >= 0){
                     counter ++;
-                    if(counter >= 10){
-                        ;
+                    if(counter >= 25){
+                        stateservo = servoclose;
+                        counter = 0;
                     }
-                }
 
-                break;
+                    break;
 
-        }   
+                case servoclose:
+                    servo5.write(0);
+                    if(SERVO5PIN >= 0){
+                        counter ++;
+                        if(counter >= 10){
+                            stateservo = servomove;
+                            counter = 0;
+                        }
+                    }
+
+                    break;
+
+                case servomove:
+            }   
     } 
 }
