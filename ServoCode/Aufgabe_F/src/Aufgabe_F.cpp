@@ -115,26 +115,21 @@ void loop(){
         digitalWrite(LEDPin_Green, LOW);
         digitalWrite(LEDPin_Red,LOW);
 
-        pos++;
-        servo5.write(pos);
-        //delay(15);
-        if(pos >= 180){
-            pos = 180;
-        }
-        Sekundencounter++;
-        if(Sekundencounter >= 1000){
+        Delay = 100;
+        for(pos; pos <= 180; pos ++){
+            servo5.write(pos);
             counter++;
-        }
-        
-        delay(Delay);
-        if(pos >= 180){
-            pos = 180;
-        }
-        if(counter >= 10){
-            if(Delay >= 10){
-                Delay -= 10;
+            ButtonMove180val = digitalRead(BUTTONMOVE180);
+            if (ButtonMove180val == HIGH){
+                break;
             }
-            counter = 0;
+            delay(Delay);
+            if(counter >= 10){
+                if(Delay >= 10){
+                    Delay -= 10;
+                }
+                counter = 0;
+            }
         }
     }
 
@@ -143,25 +138,21 @@ void loop(){
         digitalWrite(LEDPin_Green, HIGH);
         digitalWrite(LEDPin_Red,LOW);
 
-        pos--;
-        servo5.write(pos);
-        //delay(15);
-        if(pos <= 0){
-            pos = 0;
-        }
-        Sekundencounter++;
-        if(Sekundencounter >= 1000){
-         counter++;
-        }
-        delay(Delay);
-        if(pos <= 0){
-            pos = 0;
-        }
-        if(counter >= 10){
-            if(Delay >= 10){
-                Delay -= 10;
+        Delay = 100;
+        for(pos; pos <= 180; pos ++){
+            servo5.write(pos);
+            counter++;
+            ButtonMove0val = digitalRead(BUTTONMOVE0);
+            if (ButtonMove0val == HIGH){
+                break;
             }
-            counter = 0;
+            delay(Delay);
+            if(counter >= 10){
+                if(Delay >= 10){
+                    Delay -= 10;
+                }
+                counter = 0;
+            }
         }
     }
 
