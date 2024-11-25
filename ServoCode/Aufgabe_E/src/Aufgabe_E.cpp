@@ -114,7 +114,7 @@ void loop(){
     digitalWrite(LEDPin_Red,HIGH);
 
     Delay = 100;
-    for(pos; pos <= 180; pos ++){
+    for(pos; pos >= 0; pos --){
       servo5.write(pos);
       counter++;
       ButtonMove0val = digitalRead(BUTTONMOVE0);
