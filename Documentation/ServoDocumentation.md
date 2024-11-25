@@ -102,7 +102,7 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
      - **Aufgabenstellung**  
         Mit Bit0 und Bit1 wird die Zeigerstellung verändert. Dabei darf der Zeiger den Bereich 0°...180° nicht verlassen, aber           nach bestätigung von Bit0 oder Bit1 ist die Drehgeschwindigkeit zuerst langsam, nach 1s zunehmend schneller. (Tip: Zeit          erst nach 10-facher Wiederholung ändern).
 
-     - **Bedienung und Test**  
+     - **Schema**  
         ![Schema](BildMitServo.png)
 
      - **Programmbeschreib**  
