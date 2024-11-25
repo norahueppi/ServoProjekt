@@ -183,4 +183,9 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
 
 14. **Fazit**  
     Ich habe gelernt mit einem ESP32 zu programmieren. PlattformIo habe ich näher kennengelernt. Dazu habe ich mich sehr mit Mark Downs auseinandergesetzt.
-    Ich habe gelernt wie ich ein 3.3V Signal auf ein 5V signal hochziehen kann.
+    Ich habe gelernt wie ich ein 3.3V Signal auf ein 5V signal hochziehen kann.  
+
+### Protokollführer  
+- **Nora Hüppi**  
+- **25.11.2024**  
+- **Zürich**  
