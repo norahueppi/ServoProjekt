@@ -40,7 +40,11 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         Wenn das Servo strom bekommt fährt das Servo auf 90°.  
 
     - **Bedienung und Test**  
-
+        | Eingang| Ausgang            | Funktioniert?|
+        |-------:|-------------------:|-------------:|
+        | Aus    | servo aus          | Ja           |
+        | Ein    | servo fährt auf 90°| Ja           |  
+        
 8. **Aufgabe B**
     - **Aufgabenstellung**  
         Mit Bit0=0 fährt der Servo auf 0°, mit Bit0=1 auf 180°.  
@@ -91,7 +95,8 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
 
 12. **Aufgabe F**
     - **Aufgabenstellung**  
-        Mit Bit0 nd Bit1 wird die Zeigerstellung verändert. Dabei darf der Zeiger den Bereich 0°..180° nicht verlassen, aber nach bestätigung von Bit0 oder Bit1 ist die Drehgeschwindigkeit zuerst langsam, nach 1s zunehmend schneller. (Tip: Zeit erst nach 10-facher Wiederholung ändern), jedoch gewünschte Zeigerstellung mit Bit2 speichern. Es können max. 10 Zeigerstellungen gespeichert werden Start der Robotertätigkeit mit Bit3.
+        Mit Bit0 nd Bit1 wird die Zeigerstellung verändert. Dabei darf der Zeiger den Bereich 0°..180° nicht verlassen, aber nach bestätigung von Bit0 oder Bit1 ist die Drehgeschwindigkeit zuerst langsam, nach 1s zunehmend schneller. (Tip: Zeit erst nach 10-facher Wiederholung ändern), jedoch gewünschte Zeigerstellung mit Bit2 speichern. Es können max. 10 Zeigerstellungen gespeichert werden Start der Robotertätigkeit mit Bit3.  
+
     - **Schema**  
         ![Schema](BildMitServo.png)  
         
@@ -101,7 +106,8 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
 
 13. **Aufgabe G**
     - **Aufgabenstellung**  
-        Eigene Varianten und Ideen.
+        Eigene Varianten und Ideen.  
+
     - **Schema**  
 
     - **Programmbeschreib**   
