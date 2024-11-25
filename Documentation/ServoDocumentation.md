@@ -116,7 +116,8 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         | ButtonMove180 nicht gedrückt| Servo bleib stehen        | Ja           |
         | ButtonMove0 gedrückt        | Servo fährt richtung 0°   | Ja           |
         | ButtonMove0 nicht gedrückt  | Servo bleib stehen        | Ja           |
-        | counter hat auf 10 gezählt  | Servo dreht sich schneller| Ja           |
+        | counter hat auf 10 gezählt  | Servo dreht sich schneller| Ja           |  
+
 12. **Aufgabe F**
     - **Aufgabenstellung**  
         Mit Bit0 nd Bit1 wird die Zeigerstellung verändert. Dabei darf der Zeiger den Bereich 0°..180° nicht verlassen, aber nach bestätigung von Bit0 oder Bit1 ist die Drehgeschwindigkeit zuerst langsam, nach 1s zunehmend schneller. (Tip: Zeit erst nach 10-facher Wiederholung ändern), jedoch gewünschte Zeigerstellung mit Bit2 speichern. Es können max. 10 Zeigerstellungen gespeichert werden Start der Robotertätigkeit mit Bit3.  
