@@ -69,8 +69,13 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
         ![Schema](BildMitServo.png)  
         
     - **Programmbeschreib**  
-
+         Wenn das Servo strom hat dann fährt das Servo 10 vordefinierte positionen ab.  
+         
     - **Bedienung und Test**  
+        | Eingang| Ausgang                     | Funktioniert?|
+        |-------:|----------------------------:|-------------:|
+        | Aus    | servo aus                   | Ja           |
+        | Ein    | servo fährt 10 positionen ab| Ja           |  
 
 10. **Aufgabe D**
     - **Aufgabenstellung**  
