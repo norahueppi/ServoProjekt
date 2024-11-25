@@ -26,30 +26,36 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
 6. **Aufbau**  
     - **Blockschaltbild**  
         ![Blockschaltbild](Servo_Blockschaltbild.drawio.png)
-    - **Schema**  
+    - **Schema** 
+        ![Schema](Image.png) 
 
 7. **Aufgabe A**
     - **Aufgabenstellung**  
         Beim Einschalten fährt der Servo auf 90°.  
-    - **Schema**  
 
+    - **Schema**  
+        ![Schema](Image%20(1)).png
     - **Programmbeschreib**  
- 
+        Wenn das Servo strom bekommt fährt das Servo auf 90°.  
 
     - **Bedienung und Test**  
 
 8. **Aufgabe B**
     - **Aufgabenstellung**  
         Mit Bit0=0 fährt der Servo auf 0°, mit Bit0=1 auf 180°.  
+
     - **Schema**  
 
     - **Programmbeschreib**   
+        Wenn ein Flanke vom Knopf ButtonMove180 erkannt wird fährt das Servo auf 180°.
+        Wenn eine Klanke vom Konopf ButtonMove0 erkannt wird dann fährt das Servo auf 0°.  
 
     - **Bedienung und Test**  
 
 9. **Aufgabe C**
     - **Aufgabenstellung**  
         Der Servo fährt 10 vorgegebene Zeigerstellungen an.  
+
     - **Schema**  
 
     - **Programmbeschreib**  
@@ -59,15 +65,19 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
 10. **Aufgabe D**
     - **Aufgabenstellung**  
         Mit Bit0 und Bit1 wird die Zeigerstellung verändert. Dabei darf der zeiger den Bereich 0°...180° nicht verlassen.  
+
     - **Schema**  
 
     - **Programmbeschreib**  
+       Solange ButtonMove180 gedrückt ist, fährt das Servo von 0° zu 180°. Wenn ButtonMove180 losgelassen wird bleibt das Servo stehen.
+       Wenn ButtonMove0 gedrückt ist dann fährt das Servo von 180° zu 0° und auch hier bleibt das Servo stehen wenn ButtonMove0 losgelassen wird.  
 
     - **Bedienung und Test**  
 
 11. **Aufgabe E**
     - **Aufgabenstellung**  
-        Mit Bit0 und Bit1 wird die Zeigerstellung verändert. Dabei darf der Zeiger den Bereich 0°...180° nicht verlassen, aber nach bestätigung von Bit0 oder Bit1 ist die Drehgeschwindigkeit zuerst langsam, nach 1s zunehmend schneller. (Tip: Zeit erst nach 10-facher Wiederholung ändern).
+        Mit Bit0 und Bit1 wird die Zeigerstellung verändert. Dabei darf der Zeiger den Bereich 0°...180° nicht verlassen, aber nach bestätigung von Bit0 oder Bit1 ist die Drehgeschwindigkeit zuerst langsam, nach 1s zunehmend schneller. (Tip: Zeit erst nach 10-facher Wiederholung ändern).  
+
     - **Schema**  
 
     - **Programmbeschreib**    
