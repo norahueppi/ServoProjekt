@@ -25,7 +25,7 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
 
 6. **Aufbau**  
     - **Blockschaltbild**  
-
+        ![Blockschaltbild](Servo_Blockschaltbild.drawio.png)
     - **Schema**  
 
 7. **Aufgabe A**
@@ -34,29 +34,18 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
     - **Schema**  
 
     - **Programmbeschreib**  
+ 
 
-    - **Schaltungsaufbau**  
-
-    - **Bedienung**  
-
-    - **Information**  
-
-    - **Test**  
+    - **Bedienung und Test**  
 
 8. **Aufgabe B**
     - **Aufgabenstellung**  
         Mit Bit0=0 fährt der Servo auf 0°, mit Bit0=1 auf 180°.  
     - **Schema**  
 
-    - **Programmbeschreib**  
+    - **Programmbeschreib**   
 
-    - **Schaltungsaufbau**  
-
-    - **Bedienung**  
-
-    - **Information**  
-
-    - **Test**  
+    - **Bedienung und Test**  
 
 9. **Aufgabe C**
     - **Aufgabenstellung**  
@@ -65,13 +54,7 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
 
     - **Programmbeschreib**  
 
-    - **Schaltungsaufbau**  
-
-    - **Bedienung**  
-
-    - **Information**  
-
-    - **Test**  
+    - **Bedienung und Test**  
 
 10. **Aufgabe D**
     - **Aufgabenstellung**  
@@ -80,57 +63,33 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
 
     - **Programmbeschreib**  
 
-    - **Schaltungsaufbau**  
-
-    - **Bedienung**  
-
-    - **Information**  
-
-    - **Test**  
+    - **Bedienung und Test**  
 
 11. **Aufgabe E**
     - **Aufgabenstellung**  
         Mit Bit0 und Bit1 wird die Zeigerstellung verändert. Dabei darf der Zeiger den Bereich 0°...180° nicht verlassen, aber nach bestätigung von Bit0 oder Bit1 ist die Drehgeschwindigkeit zuerst langsam, nach 1s zunehmend schneller. (Tip: Zeit erst nach 10-facher Wiederholung ändern).
     - **Schema**  
 
-    - **Programmbeschreib**  
+    - **Programmbeschreib**    
 
-    - **Schaltungsaufbau**  
-
-    - **Bedienung**  
-
-    - **Information**  
-
-    - **Test**  
+    - **Bedienung und Test**  
 
 12. **Aufgabe F**
     - **Aufgabenstellung**  
         Mit Bit0 nd Bit1 qird die Zeigerstellung verändert. Dabei darf der Zeiger den Bereich 0°..180° nicht verlassen, aber nach bestätigung von Bit0 oder Bit1 ist die Drehgeschwindigkeit zuerst langsam, nach 1s zunehmend schneller. (Tip: Zeit erst nach 10-facher Wiederholung ändern), jedoch gewünschte Zeigerstellung mit Bit2 speichern. Es können max. 10 Zeigerstellungen gespeichert werden Start der Robotertätigkeit mit Bit3.
     - **Schema**  
 
-    - **Programmbeschreib**  
+    - **Programmbeschreib**   
 
-    - **Schaltungsaufbau**  
-
-    - **Bedienung**  
-
-    - **Information**  
-
-    - **Test**  
+    - **Bedienung und Test**  
 
 13. **Aufgabe G**
     - **Aufgabenstellung**  
         Eigene Varianten und Ideen.
     - **Schema**  
 
-    - **Programmbeschreib**  
+    - **Programmbeschreib**   
 
-    - **Schaltungsaufbau**  
-
-    - **Bedienung**  
-
-    - **Information**  
-
-    - **Test**  
+    - **Bedienung und Test**  
 
 14. **Fazit**
