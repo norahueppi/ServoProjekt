@@ -163,7 +163,8 @@ Ein Servo wird über ein Steuersignal angesteuert, das normalerweise ein PWM-Sig
     - **Aufgabenstellung**  
         Eigene Varianten und Ideen.  
 
-    - **Schema**  
+    - **Schema**   
+        ![Schema](BildMitServoArm.png)
          
     - **Programmbeschreib**  
         Wenn beim ButtonMove180 eine Flanke erkannt wird dann fährt der Arm an eine stelle könnt einen Stift aufheben und den Stift an einer anderen stelle wieder absetzten.
