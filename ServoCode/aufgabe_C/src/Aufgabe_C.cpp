@@ -59,7 +59,7 @@ void setup() {
 void loop(){ 
   digitalWrite(LEDPin_Green, HIGH);
 
-  delay(1000);
+  delay(3000);
   servo5.write(40);
   delay(1000);
   servo5.write(150);

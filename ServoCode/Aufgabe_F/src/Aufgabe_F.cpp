@@ -144,7 +144,7 @@ void loop(){
         digitalWrite(LEDPin_Red,LOW);                       //schreibt LED auf LOW
 
         Delay = 100;                                        //Setzt delay auf 100
-        for(pos; pos <= 180; pos ++){                       //Bleibt solange im Loop bis pos auf 180 ist
+        for(pos; pos >= 0; pos --){                       //Bleibt solange im Loop bis pos auf 180 ist
             servo5.write(pos);                              //schreibt die position ins Servo
             counter++;                                      //Zählt counter hoch
             ButtonMove0val = digitalRead(BUTTONMOVE0);      //Liest Button ein
